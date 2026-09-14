@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
+import logo from  '../../public/Luxinteractive_logo.svg'
 
 const LINKS = [
   { label: "Work", href: "#work" },
@@ -25,10 +26,7 @@ export default function Navbar() {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <nav className={styles.nav}>
-          <a href="#" className={styles.logo}>
-            luxinteractive
-            <span className={styles.dot} />
-          </a>
+
 
           <ul className={styles.links}>
             {LINKS.map((link) => (
@@ -41,7 +39,7 @@ export default function Navbar() {
           </ul>
 
           <a href="#contact" className={styles.cta}>
-            Start a project
+            Book Appointment
           </a>
 
           <button
