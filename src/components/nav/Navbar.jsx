@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import logo from  '../../public/Luxinteractive_logo.svg'
+import logo from  '../../../public/Luxinteractive_logo.svg'
 
 const LINKS = [
   { label: "Work", href: "#work" },
