@@ -1,0 +1,302 @@
+.booking {
+  background: #ffffff;
+  padding: 96px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-inter, sans-serif);
+}
+
+.heading {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.subtext {
+  font-size: 16px;
+  color: #5b6b68;
+  text-align: center;
+  max-width: 460px;
+  margin: 0 0 48px;
+}
+
+/* four-panel layout: calendar | times | form | call info */
+.layout {
+  display: grid;
+  grid-template-columns: 430px 250px  430px 300px 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1180px;
+  align-items: start;
+  justify-content: center;
+}
+
+.panel {
+  background: #f6faf9;
+  border: 1px solid rgba(15, 148, 136, 0.12);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panelTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* --- Calendar --- */
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.monthLabel {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.monthNav {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.monthNav:hover:not(:disabled) {
+  border-color: #0f9488;
+  color: #0f9488;
+}
+
+.monthNav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.weekdayRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekdayLabel {
+  font-size: 11px;
+  color: #8b8d93;
+  text-align: center;
+}
+
+.dayGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.day {
+  aspect-ratio: 1;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #0f172a;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.day:hover:not(:disabled) {
+  background: rgba(45, 212, 191, 0.12);
+}
+
+.dayOutside {
+  color: #d1d5db;
+}
+
+.dayDisabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.dayToday {
+  font-weight: 700;
+  color: #0f9488;
+}
+
+.daySelected {
+  background: #0f9488;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.daySelected.dayToday {
+  color: #ffffff;
+}
+
+/* --- Time slots --- */
+.helperText {
+  font-size: 13px;
+  color: #8b8d93;
+  margin: 0;
+}
+
+.slotGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.slot {
+  font-size: 13px;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 8px;
+  padding: 8px 4px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.slot:hover {
+  border-color: #0f9488;
+}
+
+.slotSelected {
+  background: #0f9488;
+  border-color: #0f9488;
+  color: #ffffff;
+}
+
+/* --- Call info pills --- */
+.pillList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #0f9488;
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 999px;
+  padding: 8px 14px;
+  width: fit-content;
+}
+
+/* --- Form --- */
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.input,
+.textarea {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #0f9488;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 14px;
+  color: #ffffff;
+  background: #0f9488;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #0c7a70;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.errorText {
+  font-size: 13px;
+  color: #b91c1c;
+  margin: 0;
+  text-align: center;
+}
+
+/* --- Confirmation --- */
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.confirmIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(45, 212, 191, 0.14);
+  color: #0f9488;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* --- Responsive: 2x2 on tablet, single column on mobile --- */
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+  }
+  
+  .booking {
+    padding: 64px 20px;
+  }
+
+  .panel {
+    padding: 22px;
+  }
+}

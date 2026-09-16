@@ -1,3 +1,4 @@
+import Booking from "@/components/booking/Booking";
 import Hero from "@/components/hero/Hero";
 import Testimonial from "@/components/testimonials/Testimonial";
 import UVP from "@/components/uvp/UVP";
@@ -10,6 +11,7 @@ export default function Home() {
       <Work/>
       <Testimonial/>
       <UVP/>
+      <Booking/>
     </main>
   );
 }
