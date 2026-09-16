@@ -61,9 +61,10 @@
   width: 100%;
   display: block;
   border-radius: 3px;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  object-fit: cover 50% 90%;
   background: #e2e8f0;
+  background-position: center 90%;
 }
 
 .base {
