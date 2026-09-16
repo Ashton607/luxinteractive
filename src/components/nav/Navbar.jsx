@@ -38,7 +38,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <a href="#contact" className={styles.cta}>
+          <a href="#booking" className={styles.cta}>
             Book Appointment
           </a>
 
