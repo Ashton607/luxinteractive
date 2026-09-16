@@ -28,7 +28,7 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
         <p style="font-size: 15px;"><strong>${when}</strong></p>
         ${notes ? `<p style="color: #5b6b68;">Notes: ${notes}</p>` : ""}
         <p style="color: #5b6b68; margin-top: 24px;">
-          Looking forward to speaking with you.<br />luxinteractive
+          Looking forward to speaking with you.<br />— luxinteractive
         </p>
       </div>
     `,
@@ -42,11 +42,9 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
         subject: `New booking: ${name}`,
         html: `
           <div style="font-family: sans-serif; color: #0f172a;">
-            <p><strong>Name: ${name}</strong> 
-            <br/>
-            <strong>Email: ${email}</strong> booked a call.</p>
+            <p><strong>${name}</strong> (${email}) booked a call.</p>
             <p>${when}</p>
-            ${notes ? `<p>Message: ${notes}</p>` : ""}
+            ${notes ? `<p>Notes: ${notes}</p>` : ""}
           </div>
         `,
       })
@@ -57,6 +55,50 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
   results.forEach((r, i) => {
     if (r.status === "rejected") {
       console.error(`Resend email ${i === 0 ? "(client)" : "(owner)"} failed:`, r.reason);
+    }
+  });
+}
+
+export async function sendContactEmail({ name, email, phone, website, message, enquiryType }) {
+  // notification to you
+  const ownerEmail = process.env.RESEND_OWNER_EMAIL
+    ? resend.emails.send({
+        from: process.env.RESEND_FROM_EMAIL,
+        to: process.env.RESEND_OWNER_EMAIL,
+        replyTo: email,
+        subject: `New enquiry: ${name} (${enquiryType})`,
+        html: `
+          <div style="font-family: sans-serif; color: #0f172a; max-width: 480px;">
+            <p><strong>${name}</strong> (${email}) sent an enquiry.</p>
+            <p><strong>Type:</strong> ${enquiryType}</p>
+            ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
+            ${website ? `<p><strong>Website:</strong> ${website}</p>` : ""}
+            <p style="margin-top: 16px;">${message.replace(/\n/g, "<br />")}</p>
+          </div>
+        `,
+      })
+    : Promise.resolve();
+
+  // confirmation to the visitor
+  const visitorEmail = resend.emails.send({
+    from: process.env.RESEND_FROM_EMAIL,
+    to: email,
+    subject: "We got your message — luxinteractive",
+    html: `
+      <div style="font-family: sans-serif; color: #0f172a; max-width: 480px;">
+        <h2 style="margin-bottom: 4px;">Thanks, ${name.split(" ")[0]}</h2>
+        <p style="color: #5b6b68;">
+          Your message has been received and we'll get back to you shortly.
+        </p>
+        <p style="color: #5b6b68; margin-top: 24px;">— luxinteractive</p>
+      </div>
+    `,
+  });
+
+  const results2 = await Promise.allSettled([ownerEmail, visitorEmail]);
+  results2.forEach((r, i) => {
+    if (r.status === "rejected") {
+      console.error(`Resend contact email ${i === 0 ? "(owner)" : "(visitor)"} failed:`, r.reason);
     }
   });
 }
