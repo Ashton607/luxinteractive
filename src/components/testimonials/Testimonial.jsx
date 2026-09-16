@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./Testimonial.module.css";
+import { IoIosArrowDown } from "react-icons/io";
 
 const TESTIMONIALS = [
   {
@@ -84,7 +85,7 @@ export default function Testimonial() {
         >
           {expanded ? "Show less" : "Show more reviews"}
           <span className={`${styles.chevron} ${expanded ? styles.chevronOpen : ""}`}>
-            ▾
+            <IoIosArrowDown style={{verticalAlign:'middle'}} />
           </span>
         </button>
       )}

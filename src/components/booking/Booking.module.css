@@ -27,7 +27,7 @@
 /* four-panel layout: calendar | times | form | call info */
 .layout {
   display: grid;
-  grid-template-columns: 430px 250px  430px 300px 1fr;
+  grid-template-columns: 360px 250px  430px 220px 1fr;
   gap: 20px;
   width: 100%;
   max-width: 1180px;
@@ -161,14 +161,15 @@
   color: #0f172a;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.15);
-  border-radius: 8px;
-  padding: 8px 4px;
+  border-radius: 999px;
+  padding: 6px 10px;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .slot:hover {
   border-color: #0f9488;
+  background: rgba(30, 121, 109, 0.068);
 }
 
 .slotSelected {
@@ -189,8 +190,8 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #0f9488;
-  background: rgba(45, 212, 191, 0.1);
+  color: #0b645d;
+  background: rgba(30, 121, 109, 0.068);
   border: 1px solid rgba(45, 212, 191, 0.3);
   border-radius: 999px;
   padding: 8px 14px;

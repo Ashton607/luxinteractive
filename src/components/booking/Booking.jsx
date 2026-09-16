@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useMemo } from "react";
 import styles from "./Booking.module.css";
+import { SiGooglemeet } from "react-icons/si";
+import { BiLogoZoom } from "react-icons/bi";
+import { IoHourglass } from "react-icons/io5";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTH_NAMES = [
@@ -282,60 +285,22 @@ export default function Booking() {
 
           <div className={styles.pillList}>
             <span className={styles.pill}>
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="6" width="14" height="12" rx="2" />
-                <path d="M16 10l6-4v12l-6-4" />
-              </svg>
+              <SiGooglemeet size={15}/>
               Google Meet
             </span>
 
             <span className={styles.pill}>
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="6" width="14" height="12" rx="2" />
-                <path d="M16 10l6-4v12l-6-4" />
-              </svg>
+              <BiLogoZoom size={20} />
               Zoom
             </span>
 
             <span className={styles.pill}>
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 3" />
-              </svg>
+              <IoHourglass size={15} />
               10–15 min
             </span>
           </div>
 
-          <p className={styles.helperText}>
-            A link for your preferred platform is included in the confirmation email.
-          </p>
+         
         </div>
       </form>
     </section>

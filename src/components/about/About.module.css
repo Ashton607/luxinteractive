@@ -1,0 +1,146 @@
+.about {
+  background: #ffffff;
+  padding: 96px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-inter, sans-serif);
+}
+
+
+/* --- Card + story side by side --- */
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 88px;
+}
+
+/* --- Profile card, matches the reference image structure --- */
+.card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.14);
+  background: #ffffff;
+}
+
+.photoWrap {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #1c1c1e;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  padding: 24px 24px 20px;
+}
+
+.name {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 22px;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.role {
+  font-size: 14px;
+  color: #466462;
+  margin: 0;
+}
+
+/* gradient band — kept isolated to the card, doesn't affect the rest of the site's teal theme */
+.quoteBand {
+  background: linear-gradient(135deg, #1e1b4b 0%, #6d28d9 55%, #db2777 100%);
+  padding: 22px 24px 26px;
+  text-align: center;
+}
+
+.quote {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #f5f5f7;
+  margin: 0 0 8px;
+}
+
+.quoteAuthor {
+  font-size: 12px;
+  color: rgba(245, 245, 247, 0.7);
+}
+
+/* --- Story --- */
+.storyTitle {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 20px;
+  color: #0f172a;
+  margin: 0 0 16px;
+}
+
+.storyText {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5b6b68;
+  margin: 0 0 16px;
+}
+
+.storyText:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Stats --- */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #f6faf9;
+  border: 1px solid rgba(15, 148, 136, 0.12);
+  border-radius: 16px;
+  padding: 28px 16px;
+  text-align: center;
+}
+
+.statNumber {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 32px;
+  color: #0f9488;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #5b6b68;
+}
+
+/* --- Responsive --- */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 64px 20px;
+  }
+}

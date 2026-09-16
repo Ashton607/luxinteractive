@@ -68,11 +68,11 @@
 .cta {
   grid-column: 3;
   justify-self: end;
-  font-size: 13px;
+  font-size: 15px;
   color: #0f172a;
   border: 1px solid rgba(15, 148, 136, 0.3);
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 8px 20px;
   text-decoration: none;
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }

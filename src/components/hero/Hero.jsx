@@ -1,4 +1,5 @@
 import styles from "./Hero.module.css";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Hero() {
   return (
@@ -27,7 +28,7 @@ export default function Hero() {
             Start a project
           </a>
           <a href="#work" className={styles.secondaryCta}>
-            View work <span className={styles.arrow}>→</span>
+            View work <span className={styles.arrow}><IoIosArrowForward style={{ verticalAlign: "middle" }} size={17} /></span>
           </a>
         </div>
       </div>

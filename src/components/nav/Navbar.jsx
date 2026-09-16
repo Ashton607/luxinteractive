@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import logo from  '../../../public/Luxinteractive_logo.svg'
+import { FaCalendarAlt } from "react-icons/fa";
+
 
 const LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -38,8 +39,8 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <a href="#booking" className={styles.cta}>
-            Book Appointment
+          <a href="/#booking" className={styles.cta}>
+            Book Call <FaCalendarAlt size={15} style={{marginBottom:'-1.5px'}} />
           </a>
 
           <button
