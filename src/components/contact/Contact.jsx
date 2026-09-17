@@ -3,7 +3,6 @@
 import { useState } from "react";
 import styles from "./Contact.module.css";
 import { FaWhatsapp, FaInstagram,FaLinkedin,FaGithub  } from 'react-icons/fa'
-import { FaXTwitter } from "react-icons/fa6";
 
 const ENQUIRY_OPTIONS = [
   "New Website",
@@ -77,24 +76,24 @@ export default function Contact() {
                   <FaInstagram size={16} color="#E1306C" style={{verticalAlign:'middle', marginRight:'5px'}} />
                   Instagram
                   </a></li>
-                  <li><a href="#" className={styles.link}>
+                  <li><a href="https://www.linkedin.com/in/ashton-portman-0815b1399/" className={styles.link}>
                   <FaLinkedin size={16} color="#3083e1" style={{verticalAlign:'middle', marginRight:'5px'}} />
                   LinkedIn
                   </a></li>
-                  <li><a href="#" className={styles.link}>
+                  <li><a href="https://github.com/Ashton607" className={styles.link}>
                   <FaGithub size={16} color="#ffffff" style={{verticalAlign:'middle', marginRight:'5px'}} />
                   GitHub
                   </a></li>
-                  <li><a href="#" className={styles.link}>
-                  <FaXTwitter size={16} color="#ffffff" style={{verticalAlign:'middle', marginRight:'5px'}} />
-                  X (Twitter)
+                  <li><a href="https://wa.me/27788825777" className={styles.link}>
+                  <FaWhatsapp size={16} color="#25D366"  style={{verticalAlign:'middle', marginRight:'5px'}} />
+                  WhatsApp
                   </a></li>
                 </ul>
               </div>
 
               <div className={styles.infoBlock}>
                 <h3 className={styles.infoTitle}>Email</h3>
-                <p className={styles.infoText}>portmanashton$@gmail.com</p>
+                <p className={styles.infoText}>portmanashton4@gmail.com</p>
               </div>
 
               <div className={styles.infoBlock}>
@@ -206,7 +205,7 @@ export default function Contact() {
       <div className={styles.mapWrap}>
         <iframe
           title="Location map"
-          src="https://www.google.com/maps?q=Johannesburg,South+Africa&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.191063491867!2d23.765143076531018!3d-29.040929485472486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9c954b8b4e63cd%3A0xd07e373eecaead2b!2s672%20Cyprus%20St%2C%20Douglas%2C%208730!5e0!3m2!1sen!2sza!4v1789628708254!5m2!1sen!2sza"
           className={styles.map}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

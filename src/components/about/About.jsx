@@ -39,7 +39,7 @@ export default function About() {
         <div className={styles.story}>
           <h3 className={styles.storyTitle}>Background</h3>
           <p className={styles.storyText}>
-            Lux was born from a simple idea: a website should be more than just a page on a browser.
+            Luxinteractive was born from a simple idea: a website should be more than just a page on a browser.
             Technology gives us the ability to build almost anything, but technology alone doesn't 
             create an experience. It is the combination of creativity, design, movement, storytelling, 
             and thoughtful development that gives a digital experience its character.

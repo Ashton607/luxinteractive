@@ -4,14 +4,14 @@ const LINKS = [
   { label: "Work", href: "/#work" },
   { label: "Services", href: "/#services" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "X (Twitter)", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/ashton.b_jordan" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ashton-portman-0815b1399/" },
+  { label: "GitHub", href: "https://github.com/Ashton607" },
+  { label: "WhatsApp", href: "https://wa.me/27788825777" },
 ];
 
 export default function Footer() {
@@ -20,10 +20,10 @@ export default function Footer() {
       <div className={styles.top}>
         <div className={styles.brandBlock}>
           <a href="/" className={styles.logo}>
-            luxinteractive
+            <img src="/Luxinteractive_logo.svg" alt="Luxinteractive logo" className={styles.logo} />
           </a>
           <p className={styles.tagline}>
-            Freelance web design &amp; development for founders and small
+            Web Design Agent &amp; development for founders and small
             teams who care about how their business looks online.
           </p>
         </div>
@@ -44,9 +44,9 @@ export default function Footer() {
         <div className={styles.column}>
           <h3 className={styles.columnTitle}>Contact</h3>
           <ul className={styles.linkList}>
-            <li className={styles.plainText}>hello@luxinteractive.co</li>
-            <li className={styles.plainText}>+27 00 000 0000</li>
-            <li className={styles.plainText}>Johannesburg, South Africa</li>
+            <li className={styles.plainText}>portmanashton4@gmail.com</li>
+            <li className={styles.plainText}>+27 78 882 5777</li>
+            <li className={styles.plainText}>Douglas Northern Cape, <br /> South Africa</li>
           </ul>
         </div>
 
