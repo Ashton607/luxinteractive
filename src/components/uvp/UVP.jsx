@@ -29,8 +29,7 @@ export default function UVP() {
       </h2>
 
       <p className={styles.subtext}>
-        Complex technical challenges simplified with custom solutions, clear
-        communication, and dependable system support.
+        Simplifying web development and local SEO to turn online searches into friction free calendar bookings.
       </p>
 
       <div className={styles.compareGrid}>

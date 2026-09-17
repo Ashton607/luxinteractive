@@ -31,6 +31,11 @@ export default function Work() {
         Some Of My <span className={styles.highlight}>Recent Websites</span>
       </h2>
 
+      <p className={styles.subtext}>
+        Helping local businesses in Douglas Northern Cape rank higher on Google by building brand new 
+        websites or rebuilding old websites engineered to convert search traffic into booked appointments.      
+      </p>
+
       <div className={styles.grid}>
         {PROJECTS.map((project) => (
           <div key={project.name} className={styles.card}>

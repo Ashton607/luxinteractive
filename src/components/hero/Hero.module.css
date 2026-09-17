@@ -75,11 +75,11 @@
 }
 
 .primaryCta {
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff;
   background: #0f9488;
   border-radius: 999px;
-  padding: 12px 24px;
+  padding: 8px 20px;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
@@ -103,7 +103,7 @@
 }
 
 .secondaryCta:hover .arrow {
-  transform: translateX(3px);
+  transform: translateX(6px);
 }
 
 @media (max-width: 640px) {

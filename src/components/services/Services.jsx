@@ -7,39 +7,37 @@ const SERVICES = [
     title: "Maintenance",
     description: "Keep your site fast, secure, and up to date without lifting a finger.",
     features: [
-      "Monthly updates & security patches",
+      "Monthly updates",
       "Uptime monitoring",
       "Content & copy edits",
       "Priority bug fixes",
     ],
     ctaLabel: "Get Maintenance",
-    ctaHref: "/#contact",
+    ctaHref: "#booking",
   },
   {
     icon: FiLayout,
     title: "Web Design",
-    description: "A custom-built site designed around your brand, not a template.",
+    description: "A custom built site designed around your brand, not a template.",
     features: [
-      "Custom design & layout",
-      "Mobile-first & responsive",
-      "Copywriting support",
-      "Fast, optimized performance",
+      "New Website Design & Development",
+      "Old Website Redesign & Development",
     ],
     ctaLabel: "Start a Project",
-    ctaHref: "/#contact",
+    ctaHref: "#booking",
   },
   {
     icon: FiTrendingUp,
     title: "SEO",
     description: "Get found on Google with a site that's built to rank, not just look good.",
     features: [
-      "On-page SEO setup",
+      "On page SEO setup",
       "Sitemap & metadata",
       "Page speed optimization",
       "Monthly performance reports",
     ],
     ctaLabel: "Boost My Rankings",
-    ctaHref: "/#contact",
+    ctaHref: "#booking",
   },
 ];
 
@@ -47,6 +45,11 @@ export default function Services() {
   return (
     <section id="services" className={styles.services}>
       <h2 className={styles.heading}>What I can help you with</h2>
+
+      <p className={styles.subtext}>
+        I build affordable websites in Douglas Northern Cape. I handle your website and SEO so 
+        you can focus entirely on serving your clients.      
+      </p>
 
       <div className={styles.grid}>
         {SERVICES.map((service) => {

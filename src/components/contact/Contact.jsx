@@ -50,12 +50,12 @@ export default function Contact() {
             <h1 className={styles.heading}>
               You Have Questions,
               <br />
-              We Have Answers
+              I Have Answers
             </h1>
             <p className={styles.subtext}>
               Whether you&rsquo;re starting from scratch or need a site
-              rebuilt the right way, tell us what you&rsquo;re after and
-              we&rsquo;ll take it from there.
+              rebuilt the right way, tell me what you&rsquo;re after and
+              I&rsquo;ll take it from there.
             </p>
 
             <div className={styles.infoGrid}>

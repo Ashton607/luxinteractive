@@ -1,5 +1,5 @@
 .testimonials {
-  background: #ffffff;
+  background: #f0f0f0;
   padding: 96px 24px;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,14 @@
   color: #0f172a;
   margin: 0;
 }
+
+.highlight {
+  color: #0f9488;
+  background: rgba(45, 212, 191, 0.14);
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
 
 .grid {
   display: grid;

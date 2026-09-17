@@ -52,9 +52,7 @@ export default function Testimonial() {
   return (
     <section id="testimonials" className={styles.testimonials}>
       <div className={styles.testimonialContent}>
-        <div className={styles.testimonialEyebrow}>Client Reviews</div>
-
-        <h2 className={styles.testimonialHeading}>What our clients are saying</h2>
+        <h2 className={styles.testimonialHeading}>Real Reviews, Real Calendar <span className={styles.highlight}>Bookings</span></h2>
       </div>
 
       <div className={styles.grid}>
