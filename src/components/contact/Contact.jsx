@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import styles from "./Contact.module.css";
+import { FaWhatsapp, FaInstagram,FaLinkedin,FaGithub  } from 'react-icons/fa'
+import { FaXTwitter } from "react-icons/fa6";
 
 const ENQUIRY_OPTIONS = [
   "New Website",
@@ -61,9 +63,9 @@ export default function Contact() {
               <div className={styles.infoBlock}>
                 <h3 className={styles.infoTitle}>Location</h3>
                 <p className={styles.infoText}>
-                  Based in Johannesburg, South Africa
+                  Based in Douglas Northern Cape, South Africa
                   <br />
-                  Working with clients worldwide
+                  Working with clients nation wide
                 </p>
                 <p className={styles.hours}>Mon–Fri | 09:00 – 17:00 (SAST)</p>
               </div>
@@ -71,21 +73,33 @@ export default function Contact() {
               <div className={styles.infoBlock}>
                 <h3 className={styles.infoTitle}>Social Media</h3>
                 <ul className={styles.linkList}>
-                  <li><a href="#" className={styles.link}>Instagram</a></li>
-                  <li><a href="#" className={styles.link}>LinkedIn</a></li>
-                  <li><a href="#" className={styles.link}>GitHub</a></li>
-                  <li><a href="#" className={styles.link}>X (Twitter)</a></li>
+                  <li><a href="https://www.instagram.com/ashton.b_jordan" className={styles.link}>
+                  <FaInstagram size={16} color="#E1306C" style={{verticalAlign:'middle', marginRight:'5px'}} />
+                  Instagram
+                  </a></li>
+                  <li><a href="#" className={styles.link}>
+                  <FaLinkedin size={16} color="#3083e1" style={{verticalAlign:'middle', marginRight:'5px'}} />
+                  LinkedIn
+                  </a></li>
+                  <li><a href="#" className={styles.link}>
+                  <FaGithub size={16} color="#ffffff" style={{verticalAlign:'middle', marginRight:'5px'}} />
+                  GitHub
+                  </a></li>
+                  <li><a href="#" className={styles.link}>
+                  <FaXTwitter size={16} color="#ffffff" style={{verticalAlign:'middle', marginRight:'5px'}} />
+                  X (Twitter)
+                  </a></li>
                 </ul>
               </div>
 
               <div className={styles.infoBlock}>
                 <h3 className={styles.infoTitle}>Email</h3>
-                <p className={styles.infoText}>hello@luxinteractive.co</p>
+                <p className={styles.infoText}>portmanashton$@gmail.com</p>
               </div>
 
               <div className={styles.infoBlock}>
                 <h3 className={styles.infoTitle}>Contact</h3>
-                <p className={styles.infoText}>+27 00 000 0000</p>
+                <p className={styles.infoText}>+27 78 882 5777</p>
               </div>
             </div>
           </div>

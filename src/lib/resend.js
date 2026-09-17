@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const resendcontact = new Resend(process.env.RESEND_API_KEY_CLIENT);
 
 function formatDateTime(isoString, timezone) {
   return new Date(isoString).toLocaleString("en-US", {
@@ -28,7 +29,9 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
         <p style="font-size: 15px;"><strong>${when}</strong></p>
         ${notes ? `<p style="color: #5b6b68;">Notes: ${notes}</p>` : ""}
         <p style="color: #5b6b68; margin-top: 24px;">
-          Looking forward to speaking with you.<br />— luxinteractive
+          Looking forward to speaking with you.<br />
+          Kind Regards,<br/>
+          Luxinteractive
         </p>
       </div>
     `,
@@ -42,7 +45,8 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
         subject: `New booking: ${name}`,
         html: `
           <div style="font-family: sans-serif; color: #0f172a;">
-            <p><strong>${name}</strong> (${email}) booked a call.</p>
+            <p><strong>Name: ${name} booked a call.</strong> <br/>
+            <strong>Email: ${email}</strong> </p>
             <p>${when}</p>
             ${notes ? `<p>Notes: ${notes}</p>` : ""}
           </div>
@@ -59,11 +63,13 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
   });
 }
 
+//Contact
+
 export async function sendContactEmail({ name, email, phone, website, message, enquiryType }) {
   // notification to you
   const ownerEmail = process.env.RESEND_OWNER_EMAIL
-    ? resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL,
+    ? resendcontact.emails.send({
+        from: process.env.RESEND_FROM_EMAIL_TO_CLIENT,
         to: process.env.RESEND_OWNER_EMAIL,
         replyTo: email,
         subject: `New enquiry: ${name} (${enquiryType})`,
@@ -80,8 +86,8 @@ export async function sendContactEmail({ name, email, phone, website, message, e
     : Promise.resolve();
 
   // confirmation to the visitor
-  const visitorEmail = resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL,
+  const visitorEmail = resendcontact.emails.send({
+    from: process.env.RESEND_FROM_EMAIL_TO_CLIENT,
     to: email,
     subject: "We got your message — luxinteractive",
     html: `
@@ -90,7 +96,8 @@ export async function sendContactEmail({ name, email, phone, website, message, e
         <p style="color: #5b6b68;">
           Your message has been received and we'll get back to you shortly.
         </p>
-        <p style="color: #5b6b68; margin-top: 24px;">— luxinteractive</p>
+        <p style="color: #5b6b68; margin-top: 24px;">Kind Regards,</p>
+        <p style="color: #5b6b68; margin-top: 24px;">Luxinteractive</p>
       </div>
     `,
   });

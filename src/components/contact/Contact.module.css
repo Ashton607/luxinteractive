@@ -14,7 +14,7 @@
   max-width: 1200px;
   border-radius: 24px;
   overflow: hidden;
-  background-image: url("/contact/background.jpg");
+  background-image: url("../../../public/contact/contact.webp");
   background-size: cover;
   background-position: center;
 }
@@ -24,8 +24,8 @@
   inset: 0;
   background: linear-gradient(
     120deg,
-    rgba(15, 23, 42, 0.88) 0%,
-    rgba(15, 23, 42, 0.75) 45%,
+    rgba(15, 23, 42, 0.767) 0%,
+    rgba(15, 23, 42, 0.651) 45%,
     rgba(15, 148, 136, 0.55) 100%
   );
 }
