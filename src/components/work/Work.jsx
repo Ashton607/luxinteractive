@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./Work.module.css";
 
 const PROJECTS = [
@@ -25,6 +28,27 @@ const PROJECTS = [
 ];
 
 export default function Work() {
+  const [visible, setVisible] = useState(() => new Set());
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisible((prev) => new Set(prev).add(index));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="work" className={styles.section}>
       <h2 className={styles.heading}>
@@ -37,8 +61,14 @@ export default function Work() {
       </p>
 
       <div className={styles.grid}>
-        {PROJECTS.map((project) => (
-          <div key={project.name} className={styles.card}>
+        {PROJECTS.map((project, i) => (
+          <div
+            key={project.name}
+            ref={(el) => (cardRefs.current[i] = el)}
+            data-index={i}
+            style={{ transitionDelay: `${i * 0.12}s` }}
+            className={`${styles.card} ${visible.has(i) ? styles.cardVisible : ""}`}
+          >
             <div className={styles.laptop}>
               <div className={styles.screenWrap}>
                 <img

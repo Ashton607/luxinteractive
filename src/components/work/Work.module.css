@@ -48,6 +48,16 @@
   align-items: center;
   text-align: center;
   font-family: var(--font-inter, sans-serif);
+
+  /* scroll-triggered entrance: starts hidden, revealed when .cardVisible is added */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* laptop mockup, built with plain CSS shapes rather than an image asset */
@@ -65,6 +75,7 @@
   border-radius: 14px 14px 4px 4px;
   padding: 10px 10px 12px;
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
 }
 
 .screenImg {
@@ -75,6 +86,19 @@
   object-fit: cover 50% 90%;
   background: #e2e8f0;
   background-position: center 90%;
+
+  /* screen power-on reveal: dark and dim until the card scrolls into view */
+  opacity: 0;
+  filter: brightness(0.15) saturate(0.6);
+  transform: scale(0.98);
+  transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease;
+  transition-delay: 0.25s;
+}
+
+.cardVisible .screenImg {
+  opacity: 1;
+  filter: brightness(1) saturate(1);
+  transform: scale(1);
 }
 
 .base {
@@ -135,5 +159,16 @@
 @media (max-width: 480px) {
   .section {
     padding: 64px 20px;
+  }
+}
+
+/* respect users who've asked their OS for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .screenImg {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }

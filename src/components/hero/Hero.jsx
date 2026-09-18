@@ -10,24 +10,24 @@ export default function Hero() {
       <div className={styles.glow} />
 
       <div className={styles.content}>
-        <div className={styles.eyebrow}>
+        <div className={`${styles.eyebrow} ${styles.fadeUp1}`}>
           <img src="/Luxinteractive_logo.svg" alt="Luxinteractive Logo" className={styles.eyebrowImg} />
         </div>
 
-        <h1 className={styles.headline}>
+        <h1 className={`${styles.headline} ${styles.fadeUp2}`}>
           Raising the Standard for
           <br />
           Websites in <br/>
           Northen Cape
         </h1>
 
-        <p className={styles.subtext}>
+        <p className={`${styles.subtext} ${styles.fadeUp3}`}>
           I design and build websites for local business owners in Northern Cape 
           who care about how their business looks and performs online and help improve their Google 
           ratings.
         </p>
 
-        <div className={styles.actions}>
+        <div className={`${styles.actions} ${styles.fadeUp4}`}>
           <a href="#services" className={styles.primaryCta}>
             Start a project <MdRocketLaunch size={18} style={{marginLeft:'3px'}} />
           </a>

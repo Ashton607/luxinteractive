@@ -30,7 +30,9 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
         ${notes ? `<p style="color: #5b6b68;">Notes: ${notes}</p>` : ""}
         <p style="color: #5b6b68; margin-top: 24px;">
           Looking forward to speaking with you.<br />
+          <br/>
           Kind Regards,<br/>
+          <br/>
           Luxinteractive
         </p>
       </div>
@@ -45,7 +47,8 @@ export async function sendBookingEmails({ start, name, email, notes, timezone })
         subject: `New booking: ${name}`,
         html: `
           <div style="font-family: sans-serif; color: #0f172a;">
-            <p><strong>Name: ${name} booked a call.</strong> <br/>
+            <p><strong>${name} booked a call.</strong> <br/>
+            <br/>
             <strong>Email: ${email}</strong> </p>
             <p>${when}</p>
             ${notes ? `<p>Notes: ${notes}</p>` : ""}
