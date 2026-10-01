@@ -156,9 +156,63 @@
   padding: 8px 16px;
 }
 
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    margin-bottom: 48px;
+  }
+
+  .subtext {
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .card {
+    padding: 32px 24px 28px;
+  }
+}
+
 @media (max-width: 480px) {
   .section {
     padding: 64px 20px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .card {
+    padding: 28px 20px 24px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .quote {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .stat {
+    font-size: 12px;
+    padding: 7px 14px;
   }
 }
 
