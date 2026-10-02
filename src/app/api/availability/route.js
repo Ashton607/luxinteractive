@@ -1,29 +1,26 @@
-import { getCalendarClient, BOOKING_CONFIG, zonedTimeToUtc } from "@/lib/google-calendar";
+import { getCalendarClient, BOOKING_CONFIG } from "@/lib/google-calendar";
 
 // GET /api/availability?date=2026-09-20
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const date = searchParams.get("date");
 
-  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    return Response.json({ error: "Missing or invalid date parameter" }, { status: 400 });
+  if (!date) {
+    return Response.json({ error: "Missing date parameter" }, { status: 400 });
   }
 
   const { calendarId, timezone, startHour, endHour, slotMinutes } = BOOKING_CONFIG;
 
+  const dayStart = new Date(`${date}T00:00:00`);
+  const dayEnd = new Date(`${date}T23:59:59`);
+
+  // block out weekends by default — adjust as needed
+  const day = dayStart.getDay();
+  if (day === 0 || day === 6) {
+    return Response.json({ slots: [] });
+  }
+
   try {
-    // Day of the week for the calendar date itself, independent of server time zone
-    const day = new Date(`${date}T00:00:00Z`).getUTCDay();
-
-    // Closed weekends — adjust to taste
-    if (day === 0 || day === 6) {
-      return Response.json({ slots: [] });
-    }
-
-    // Full business-timezone day window, expressed as correct UTC instants
-    const dayStart = zonedTimeToUtc(date, 0, timezone);
-    const dayEnd = zonedTimeToUtc(date, 24 * 60, timezone);
-
     const calendar = getCalendarClient();
 
     const freeBusy = await calendar.freebusy.query({
@@ -37,19 +34,16 @@ export async function GET(request) {
 
     const busy = freeBusy.data.calendars[calendarId]?.busy || [];
 
-    // Every possible slot for the business day, in the business's time zone
+    // build every possible slot for the business day
     const allSlots = [];
-    for (
-      let mins = startHour * 60;
-      mins + slotMinutes <= endHour * 60;
-      mins += slotMinutes
-    ) {
-      const start = zonedTimeToUtc(date, mins, timezone);
-      const end = new Date(start.getTime() + slotMinutes * 60000);
-      allSlots.push({ start, end });
+    for (let hour = startHour; hour < endHour; hour += slotMinutes / 60) {
+      const slotStart = new Date(date);
+      slotStart.setHours(Math.floor(hour), (hour % 1) * 60, 0, 0);
+      const slotEnd = new Date(slotStart.getTime() + slotMinutes * 60000);
+      allSlots.push({ start: slotStart, end: slotEnd });
     }
 
-    // Drop slots in the past, and any that overlap an existing booking
+    // filter out any slot that overlaps a busy period, and past slots for today
     const now = new Date();
     const availableSlots = allSlots.filter(({ start, end }) => {
       if (start < now) return false;
@@ -62,12 +56,9 @@ export async function GET(request) {
     });
 
     return Response.json({
-      slots: availableSlots.map(({ start }) => ({
-        start: start.toISOString(),
-        // Formatted in the business's time zone, so it matches the calendar
-        // and confirmation email regardless of where the server runs
-        label: start.toLocaleTimeString("en-US", {
-          timeZone: timezone,
+      slots: availableSlots.map((s) => ({
+        start: s.start.toISOString(),
+        label: s.start.toLocaleTimeString("en-US", {
           hour: "numeric",
           minute: "2-digit",
         }),
@@ -75,11 +66,6 @@ export async function GET(request) {
     });
   } catch (err) {
     console.error("Availability fetch failed:", err);
-    // TEMPORARY: exposes the real error in the Network tab for debugging.
-    // Remove the `detail` line once you're happy everything works.
-    return Response.json(
-      { error: "Could not load availability", detail: String(err?.message || err) },
-      { status: 500 }
-    );
+    return Response.json({ error: "Could not load availability" }, { status: 500 });
   }
 }
