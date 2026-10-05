@@ -3,8 +3,8 @@ import styles from "./About.module.css";
 const STATS = [
   { number: "1+", label: "Years of Experience" },
   { number: "20+", label: "Projects Completed" },
-  { number: "6", label: "Satisfied Clients" },
-  { number: "6+", label: "Client Reviews" },
+  { number: "3", label: "Satisfied Clients" },
+  { number: "3", label: "Client Reviews" },
 ];
 
 export default function About() {

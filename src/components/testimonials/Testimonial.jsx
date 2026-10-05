@@ -23,24 +23,7 @@ const TESTIMONIALS = [
     quote:
       "The site redesign modernized our brand and made client onboarding effortless. New clients can now schedule consultation calls directly on our calendar without any back-and-forth.",
   },
-  {
-    name: "Priya Nandan",
-    role: "Founder, Nandan Studio",
-    quote:
-      "The new site loads fast, looks incredibly sharp, and consistently turns casual Google searchers into confirmed appointments. Communication was top-tier from start to finish.",
-  },
-  {
-    name: "Marcus Ile",
-    role: "CEO, Ile & Partners",
-    quote:
-      "Night and day difference from freelancers we've used before. They actually understood local search optimization and built a reliable booking engine that keeps our schedule full.",
-  },
-  {
-    name: "Grace Ferreira",
-    role: "Founder, Ferreira Interiors",
-    quote:
-      "A stunning website that showcases our portfolio and makes booking design consultations simple for local clients. It has completely transformed our online presence.",
-  },
+ 
 ];
 
 const INITIAL_COUNT = 3;
