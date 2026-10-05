@@ -8,22 +8,22 @@ const PROJECTS = [
     name: "Deon Ellison Foundation",
     image: "/work/npo.png",
     quote:
-      "Been worth every penny so far. On track to grow $6,500 in revenue this month. I know you guys have been a big part of that.",
-    stat: "27 New Leads In Month One",
+      "Our mission finally has the online presence it deserves. The site makes it effortless for sponsors to contribute and for local families to access our programs.",
+    stat: "+140% Increase in Donor Support",
   },
   {
     name: "Hair Salon",
     image: "/work/salon.png",
     quote:
-      "Payton and his team are very knowledgeable about the SEO process. They have helped give Skyscape a better presence online.",
-    stat: "4.5k Monthly Visitors",
+      "Our booking schedule filled up faster than ever after the site redesign. Clients love booking online, and it saves us hours on the phone every single week.",
+    stat: "85% Bookings Handled Online",
   },
   {
     name: "Barbershop",
     image: "/work/barbershop.png",
     quote:
-      "Payton and his team are very knowledgeable about the SEO process. They have helped give Skyscape a better presence online.",
-    stat: "4.5k Monthly Visitors",
+      "Our booking schedule filled up faster than ever after the site redesign. Clients love booking online, and it saves us hours on the phone every single week.",
+    stat: "85% Bookings Handled Online",
   },
 ];
 
