@@ -9,37 +9,37 @@ const TESTIMONIALS = [
     name: "Sarah Whitfield",
     role: "Founder, Mint Clean Co.",
     quote:
-      "Been worth every penny so far. On track to grow $6,500 in revenue this month. I know you guys have been a big part of that.",
+      "Our booking calendar filled up within weeks of launching the new site. The local SEO and automated scheduling saved us hours on the phone while steadily increasing our monthly bookings.",
   },
   {
     name: "Payton Rourke",
     role: "Owner, Skyscape Canopies",
     quote:
-      "Very knowledgeable about the SEO process. They have helped give us a better presence online and are organized and execute as promised.",
+      "We went from invisible on Google to ranking near the top in our area. The online quote and appointment system is seamless, and we've seen a massive surge in qualified local leads.",
   },
   {
     name: "Daniel Osei",
     role: "Director, Harborline Consulting",
     quote:
-      "The whole process was smooth from the first call to launch. Our site finally feels like it matches the quality of our work.",
+      "The site redesign modernized our brand and made client onboarding effortless. New clients can now schedule consultation calls directly on our calendar without any back-and-forth.",
   },
   {
     name: "Priya Nandan",
     role: "Founder, Nandan Studio",
     quote:
-      "Communication was excellent throughout and the final site loads fast, looks clean, and actually converts visitors into leads.",
+      "The new site loads fast, looks incredibly sharp, and consistently turns casual Google searchers into confirmed appointments. Communication was top-tier from start to finish.",
   },
   {
     name: "Marcus Ile",
     role: "CEO, Ile & Partners",
     quote:
-      "We'd tried two other freelancers before this. Night and day difference in both the process and the end result.",
+      "Night and day difference from freelancers we've used before. They actually understood local search optimization and built a reliable booking engine that keeps our schedule full.",
   },
   {
     name: "Grace Ferreira",
     role: "Founder, Ferreira Interiors",
     quote:
-      "Exactly what our brand needed. Thoughtful design, clear timelines, and a site we're genuinely proud to send clients to.",
+      "A stunning website that showcases our portfolio and makes booking design consultations simple for local clients. It has completely transformed our online presence.",
   },
 ];
 
