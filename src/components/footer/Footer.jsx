@@ -13,17 +13,16 @@ const SOCIALS = [
   { label: "GitHub", href: "https://github.com/Ashton607" },
   { label: "WhatsApp", href: "https://wa.me/27788825777" },
 ];
-
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
         <div className={styles.brandBlock}>
           <a href="/" className={styles.logo}>
-            <img src="/Luxinteractive_logo.svg" alt="Luxinteractive logo" className={styles.logo} />
+           <img src="/Luxinteractive_logo.svg" alt="Luxinteractive logo" className={styles.logo} />
           </a>
           <p className={styles.tagline}>
-            Web Design Agent &amp; development for founders and small
+            Freelance web design &amp; development for founders and small
             teams who care about how their business looks online.
           </p>
         </div>
@@ -66,6 +65,14 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <span>&copy; {new Date().getFullYear()} luxinteractive. All rights reserved.</span>
+        <div className={styles.legalLinks}>
+          <a href="/privacy" className={styles.legalLink}>
+            Privacy Policy
+          </a>
+          <a href="/terms" className={styles.legalLink}>
+            Terms of Service
+          </a>
+        </div>
       </div>
     </footer>
   );
