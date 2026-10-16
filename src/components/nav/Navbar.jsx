@@ -67,11 +67,11 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#booking"
               onClick={() => setOpen(false)}
               className={styles.mobileCta}
             >
-              Start a project
+            Book Call <FaCalendarAlt size={15} style={{marginBottom:'-1.5px'}} />
             </a>
           </div>
         )}
