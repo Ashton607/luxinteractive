@@ -4,9 +4,9 @@ import { MdRocketLaunch } from "react-icons/md";
 
 
 const SCORES = [
-  { label: "Performance", value: 74 },
+  { label: "Performance", value: 95 },
   { label: "Accessibility", value: 96 },
-  { label: "Best Practices", value: 100 },
+  { label: "Best Practices", value: 96 },
   { label: "SEO", value: 100 },
 ];
 
@@ -67,7 +67,7 @@ export default function Hero() {
         <div className={styles.visual}>
           <div className={styles.searchCard}>
             <div className={styles.siteRow}>
-              <span className={styles.favicon}><img src="/Luxinteractive.png" alt="Luxinteractive Logo" /></span>
+              <span className={styles.favicon}><img src="/Luxinteractive_logo.svg" alt="Luxinteractive Logo" /></span>
               <div className={styles.siteMeta}>
                 <span className={styles.siteName}>{SITE.name}</span>
                 <span className={styles.siteUrl}>{SITE.url}</span>
