@@ -9,13 +9,13 @@ const PROJECTS = [
     image: "/work/npo.png",
     quote:
       "Our mission finally has the online presence it deserves. The site makes it effortless for sponsors to contribute and for local families to access our programs.",
-    stat: "+140% Increase in Donor Support",
+    stat: "+10% Increase in Donor Support",
   },
   {
     name: "Hair Salon",
     image: "/work/salon.png",
     quote:
-      "Our booking schedule filled up faster than ever after the site redesign. Clients love booking online, and it saves us hours on the phone every single week.",
+      "Clients love booking online, and it saves us hours on the phone every single week.",
     stat: "85% Bookings Handled Online",
   },
   {
@@ -24,6 +24,13 @@ const PROJECTS = [
     quote:
       "Our booking schedule filled up faster than ever after the site redesign. Clients love booking online, and it saves us hours on the phone every single week.",
     stat: "85% Bookings Handled Online",
+  },
+  {
+    name: "BeeWell Infant Spa",
+    image: "/work/beewell.png",
+    quote:
+      "Most of my classes are booked through the new website. Clients love booking online, and it saves us hours on the phone every single week.",
+    stat: "90% Bookings Handled Online",
   },
 ];
 

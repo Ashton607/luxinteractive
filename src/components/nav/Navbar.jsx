@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import { FaCalendarAlt } from "react-icons/fa";
-
+import { IoIosArrowForward } from "react-icons/io";
 
 const LINKS = [
   { label: "Work", href: "/#work" },
@@ -23,12 +23,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // close the mobile menu with the Escape key
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <>
+      {/* mobile only: tap outside the menu to close it */}
+      {open && (
+        <div
+          className={styles.backdrop}
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <nav className={styles.nav}>
-
-
           <ul className={styles.links}>
             {LINKS.map((link) => (
               <li key={link.label}>
@@ -44,18 +61,22 @@ export default function Navbar() {
           </a>
 
           <button
-            aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
             className={styles.toggle}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
-            <span className={`${styles.bar} ${open ? styles.barTopOpen : ""}`} />
-            <span className={`${styles.bar} ${open ? styles.barMidOpen : ""}`} />
-            <span className={`${styles.bar} ${open ? styles.barBottomOpen : ""}`} />
+            <span className={styles.bars} aria-hidden="true">
+              <span className={`${styles.bar} ${open ? styles.barTopOpen : ""}`} />
+              <span className={`${styles.bar} ${open ? styles.barMidOpen : ""}`} />
+              <span className={`${styles.bar} ${open ? styles.barBottomOpen : ""}`} />
+            </span>
+            <span className={styles.toggleLabel}>{open ? "Close" : "Menu"}</span>
           </button>
         </nav>
 
         {open && (
-          <div className={styles.mobileMenu}>
+          <div id="mobile-menu" className={styles.mobileMenu}>
             {LINKS.map((link) => (
               <a
                 key={link.label}
@@ -64,15 +85,9 @@ export default function Navbar() {
                 className={styles.mobileLink}
               >
                 {link.label}
+                <IoIosArrowForward className={styles.mobileArrow} aria-hidden="true" />
               </a>
             ))}
-            <a
-              href="/#booking"
-              onClick={() => setOpen(false)}
-              className={styles.mobileCta}
-            >
-            Book Call <FaCalendarAlt size={15} style={{marginBottom:'-1.5px'}} />
-            </a>
           </div>
         )}
       </header>
