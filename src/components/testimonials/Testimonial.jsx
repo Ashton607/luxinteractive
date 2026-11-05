@@ -6,22 +6,22 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const TESTIMONIALS = [
   {
-    name: "Sarah Whitfield",
-    role: "Founder, Mint Clean Co.",
+    name: "Deon Ellison",
+    role: "Founder, Deon Ellison Foundation",
     quote:
-      "Our booking calendar filled up within weeks of launching the new site. The local SEO and automated scheduling saved us hours on the phone while steadily increasing our monthly bookings.",
+      ".",
   },
   {
-    name: "Payton Rourke",
-    role: "Owner, Skyscape Canopies",
+    name: "Penny De Villiers",
+    role: "Owner, BeeWell Infant Spa",
     quote:
-      "We went from invisible on Google to ranking near the top in our area. The online quote and appointment system is seamless, and we've seen a massive surge in qualified local leads.",
+      ".",
   },
   {
     name: "Daniel Osei",
-    role: "Director, Harborline Consulting",
+    role: "Owner, Daniel Osei Photography",
     quote:
-      "The site redesign modernized our brand and made client onboarding effortless. New clients can now schedule consultation calls directly on our calendar without any back-and-forth.",
+      ".",
   },
  
 ];

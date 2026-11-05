@@ -1,4 +1,5 @@
 import styles from './UVP.module.css'
+import { FaCheck } from "react-icons/fa";
 
 const DISADVANTAGES = [
   "Slow turnarounds, weeks of waiting for updates",
@@ -62,19 +63,7 @@ export default function UVP() {
           <ul className={styles.list}>
             {ADVANTAGES.map((item) => (
               <li key={item} className={styles.listItem}>
-                <svg
-                  className={styles.iconGood}
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+                <FaCheck className={styles.iconGood} />
                 <span>{item}</span>
               </li>
             ))}

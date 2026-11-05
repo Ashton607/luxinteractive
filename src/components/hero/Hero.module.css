@@ -164,7 +164,6 @@
   object-fit: contain;
   display: block;
 }
-
 .siteMeta {
   display: flex;
   flex-direction: column;
@@ -382,5 +381,179 @@
   .secondaryCta {
     width: 90%;
     justify-content: center;
+  }
+}
+
+/* =====================================================
+   Fluid, bouncy animations (CSS only, no JS needed)
+   ===================================================== */
+
+/* the bouncy "overshoot" curve used everywhere */
+.hero {
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- Floating background blobs ---------- */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50% 45% 55% 50%;
+}
+
+.hero::before {
+  top: -90px;
+  right: -80px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle at 30% 30%, rgba(45, 212, 190, 0.45), transparent 70%);
+  opacity: 0.8;
+  animation: drift 9s ease-in-out infinite;
+}
+
+.hero::after {
+  bottom: -110px;
+  left: -90px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle at 60% 40%, rgba(15, 148, 136, 0.35), transparent 70%);
+  opacity: 0.55;
+  animation: drift 12s ease-in-out infinite reverse;
+}
+
+.inner {
+  z-index: 1; /* keeps content above the blobs */
+}
+
+/* ---------- Entrance: each piece bounces up in turn ---------- */
+.content > * {
+  animation: rise 0.9s var(--bounce) backwards;
+}
+
+.content > :nth-child(1) { animation-delay: 0.1s; }
+.content > :nth-child(2) { animation-delay: 0.25s; }
+.content > :nth-child(3) { animation-delay: 0.4s; }
+.content > :nth-child(4) { animation-delay: 0.55s; }
+
+/* ---------- Buttons: springy hover + soft glowing ring ---------- */
+.primaryCta,
+.secondaryCta {
+  transition: transform 0.4s var(--bounce), background-color 0.2s ease, color 0.2s ease;
+}
+
+.primaryCta {
+  animation: ring 2.6s ease-out 1.6s infinite;
+}
+
+.primaryCta:hover,
+.primaryCta:focus-visible {
+  transform: translateY(-4px) scale(1.06);
+}
+
+.secondaryCta:hover,
+.secondaryCta:focus-visible {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.primaryCta:active,
+.secondaryCta:active {
+  transform: scale(0.96);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.4s var(--bounce);
+}
+
+.secondaryCta:hover .arrow {
+  transform: translateX(8px);
+}
+
+/* ---------- Proof cards pop in one by one, then float ---------- */
+.searchCard {
+  animation: popFlat 0.7s var(--bounce) 0.6s backwards, bob 4.5s ease-in-out 1.8s infinite;
+}
+
+.scoresCard {
+  animation: popFlat 0.7s var(--bounce) 0.85s backwards, bob 4.5s ease-in-out 2.4s infinite;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(46px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes popFlat {
+  from {
+    opacity: 0;
+    transform: scale(0.4) translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ring {
+  0% {
+    box-shadow: 0 10px 24px rgba(15, 148, 136, 0.25), 0 0 0 0 rgba(45, 212, 190, 0.6);
+  }
+  70%,
+  100% {
+    box-shadow: 0 10px 24px rgba(15, 148, 136, 0.25), 0 0 0 16px rgba(45, 212, 190, 0);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 50% 45% 55% 50%;
+  }
+  50% {
+    transform: translate(-30px, 40px) scale(1.12);
+    border-radius: 45% 55% 50% 60%;
+  }
+}
+
+/* smaller blobs on phones */
+@media (max-width: 800px) {
+  .hero::before {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero::after {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* people who prefer less motion get a still page */
+@media (prefers-reduced-motion: reduce) {
+  .hero *,
+  .hero::before,
+  .hero::after {
+    animation: none !important;
+    transition: none !important;
   }
 }

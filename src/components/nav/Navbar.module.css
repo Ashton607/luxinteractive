@@ -329,3 +329,122 @@
     transition: none;
   }
 }
+
+/* ===================== Mobile animations (bouncy) ===================== */
+/* Everything below lives inside the mobile media query, so desktop is untouched. */
+@media (max-width: 768px) {
+  .header {
+    --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* ---------- Pill drops in on page load ---------- */
+  .nav {
+    animation: navRise 0.9s var(--bounce) backwards;
+  }
+
+  /* ---------- Menu button: bouncy X + springy press ---------- */
+  .bar {
+    transition: transform 0.4s var(--bounce), opacity 0.2s ease;
+  }
+
+  .toggle {
+    transition: transform 0.4s var(--bounce), background-color 0.2s ease;
+  }
+
+  .toggle:active {
+    transform: scale(0.94);
+  }
+
+  /* ---------- Book Call: glowing ring + springy press ---------- */
+  .cta {
+    animation: navRing 2.6s ease-out 1.6s infinite;
+    transition: transform 0.4s var(--bounce), background-color 0.2s ease;
+  }
+
+  .cta:active {
+    transform: scale(0.94);
+  }
+
+  /* ---------- Menu card pops open, links rise in turn ---------- */
+  .mobileMenu {
+    animation: menuPop 0.55s var(--bounce) backwards;
+  }
+
+  .mobileLink {
+    animation: linkRise 0.5s var(--bounce) backwards;
+    transition: transform 0.4s var(--bounce), background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .mobileLink:nth-child(1) { animation-delay: 0.08s; }
+  .mobileLink:nth-child(2) { animation-delay: 0.16s; }
+  .mobileLink:nth-child(3) { animation-delay: 0.24s; }
+  .mobileLink:nth-child(4) { animation-delay: 0.32s; }
+
+  .mobileLink:active {
+    transform: scale(0.97);
+  }
+
+  .mobileArrow {
+    transition: transform 0.4s var(--bounce);
+  }
+
+  .mobileLink:hover .mobileArrow,
+  .mobileLink:active .mobileArrow {
+    transform: translateX(6px);
+  }
+
+  @keyframes navRise {
+    from {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.94);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes menuPop {
+    from {
+      opacity: 0;
+      transform: translateY(-14px) scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes linkRise {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes navRing {
+    0% {
+      box-shadow: 0 0 0 0 rgba(45, 212, 190, 0.6);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 14px rgba(45, 212, 190, 0);
+    }
+  }
+}
+
+/* people who prefer less motion get a still navbar */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .nav,
+  .cta,
+  .mobileMenu,
+  .mobileLink,
+  .mobileArrow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
