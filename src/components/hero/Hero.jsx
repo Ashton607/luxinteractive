@@ -11,11 +11,11 @@ const SCORES = [
 ];
 
 const SITE = {
-  name: "beewellinfantspa",
-  url: "https://beewellinfantspa.co.za",
-  title: "BeeWell Infant Spa | Northern Cape",
+  name: "luxinteractive",
+  url: "https://luxinteractive.co.za",
+  title: "Luxinteractive | Website Design & Development in Northern Cape",
   description:
-    "Certified baby massage classes in Douglas and Kimberley, Northern Cape. Easy online appointment booking for parents seeking gentle care & bonding. Book now!",
+    "What I can help you with. I build affordable websites in Douglas Northern Cape. I handle your website and SEO so you can focus entirely on serving your clients",
   rating: null,
   reviews: 0,
 };
@@ -67,7 +67,7 @@ export default function Hero() {
         <div className={styles.visual}>
           <div className={styles.searchCard}>
             <div className={styles.siteRow}>
-              <span className={styles.favicon}><img src="/BWicon.png" alt="BeeWell Infant Spa Logo" /></span>
+              <span className={styles.favicon}><img src="/Luxinteractive.png" alt="Luxinteractive Logo" /></span>
               <div className={styles.siteMeta}>
                 <span className={styles.siteName}>{SITE.name}</span>
                 <span className={styles.siteUrl}>{SITE.url}</span>
